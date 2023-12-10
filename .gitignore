@@ -1,0 +1,4 @@
+vendor/*
+sandbox/*
+.vscode/*
+.php-cs-fixer.cache
