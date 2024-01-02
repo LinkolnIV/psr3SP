@@ -51,6 +51,7 @@ class Configure
     /**
      * Get configure from remote file/array
      *
+     * @throws ParseException - problems with configuration
      * @return void
      */
     public function getConfigure(): void
@@ -68,6 +69,8 @@ class Configure
 
     /**
      * Set path to folder with logs
+     *
+     * @throws LogicException - problems with configuration
      * @return void
      */
     private function setFilePath(): void
@@ -90,6 +93,8 @@ class Configure
 
     /**
      * Set other path for level
+     *
+     * @throws LogicException - mistake in configuration
      * @return void
      */
     private function setLogLevelFiles(): void
@@ -101,8 +106,10 @@ class Configure
             }
 
             foreach ($this->RawConfig['log_level_files'] as $item) {
+
                 $key = current(array_keys($item));
                 $el = $item[$key];
+
                 switch ($key) {
                     case "EMERGENCY":
                         if (!empty($el)) {

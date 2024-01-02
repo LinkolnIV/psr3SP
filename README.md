@@ -1,6 +1,6 @@
 #PSR-3
 
-Простая реализаци стандарта PSR-3 с дополнительными возможнастями конфигурации
+Простая реализаци стандарта PSR-3
 
 ### Пример использования 
 ```php
@@ -17,6 +17,20 @@ $log->info("info mess");
 $log->error("error mess");
 
 ```
+
+### Пример с контекстом
+```php
+
+require_once '../vendor/autoload.php';
+
+use App\Logger;
+
+$log = new Logger();
+$log->info("Test context with password {1234}",["1234"=>"0000"]);
+
+```
+
+
 
 ### Файл Конфигурации
 ```yaml
